@@ -2,6 +2,7 @@ from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
+import random
 import streamlit as st
 
 """
@@ -35,5 +36,5 @@ with st.echo(code_location='below'):
         data.append(Point(x, y))
 
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=0.5)
+        .mark_circle(color='#0068c9', opacity=random.random())
         .encode(x='x:Q', y='y:Q'))
