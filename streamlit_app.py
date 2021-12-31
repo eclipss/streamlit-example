@@ -34,7 +34,7 @@ with st.echo(code_location='below'):
         x = radius * math.cos(angle)
         y = radius * math.sin(angle)
         z = random.random()
-        data.append(Point(x, y))
+        data.append(Point(x, y, z))
 
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
         .mark_circle(opacity=0.5)
