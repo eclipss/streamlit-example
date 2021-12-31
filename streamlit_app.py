@@ -19,6 +19,7 @@ In the meantime, below is an example of what you can do with just a few lines of
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
+    point_radius = st.slider("Radius of each point", 0.1, 1.0, 0.3)
 
     Point = namedtuple('Point', 'x y')
     data = []
@@ -28,7 +29,7 @@ with st.echo(code_location='below'):
     for curr_point_num in range(total_points):
         curr_turn, i = divmod(curr_point_num, points_per_turn)
         angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points
+        radius = curr_point_num / total_points * point_radius
         x = radius * math.cos(angle)
         y = radius * math.sin(angle)
         data.append(Point(x, y))
