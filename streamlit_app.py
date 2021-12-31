@@ -2,6 +2,7 @@ from collections import namedtuple
 import altair as alt
 import math
 import pandas as pd
+import random
 import streamlit as st
 
 """
@@ -29,7 +30,7 @@ with st.echo(code_location='below'):
     for curr_point_num in range(total_points):
         curr_turn, i = divmod(curr_point_num, points_per_turn)
         angle = (curr_turn + 1) * 2 * math.pi * i / points_per_turn
-        radius = curr_point_num / total_points * point_radius
+        radius = (curr_point_num / total_points) * point_radius
         x = radius * math.cos(angle)
         y = radius * math.sin(angle)
         data.append(Point(x, y))
