@@ -22,7 +22,7 @@ with st.echo(code_location='below'):
     num_turns = st.slider("Number of turns in spiral", 1, 100, 9)
     point_radius = st.slider("Radius of each point", 0.1, 1.0, 0.3)
 
-    Point = namedtuple('Point', 'x y')
+    Point = namedtuple('Point', 'x y z')
     data = []
 
     points_per_turn = total_points / num_turns
@@ -33,8 +33,9 @@ with st.echo(code_location='below'):
         radius = (curr_point_num / total_points) * point_radius
         x = radius * math.cos(angle)
         y = radius * math.sin(angle)
+        z = random.random()
         data.append(Point(x, y))
 
     st.altair_chart(alt.Chart(pd.DataFrame(data), height=500, width=500)
-        .mark_circle(color='#0068c9', opacity=random.random() * 0.5)
+        .mark_circle(color='#0068c9', opacity='z:Q')
         .encode(x='x:Q', y='y:Q'))
