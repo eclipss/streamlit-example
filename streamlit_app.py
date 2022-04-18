@@ -4,6 +4,7 @@ import math
 import pandas as pd
 import random
 import streamlit as st
+from gsheetsdb import connect
 
 """
 # Welcome to Streamlit by Eclipss!
@@ -16,6 +17,29 @@ forums](https://discuss.streamlit.io).
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
 
+conn = connect()
+
+# Perform SQL query on the Google Sheet.
+# Uses st.cache to only rerun when the query changes or after 10 min.
+@st.cache(ttl=600)
+def run_query():
+    result = conn.execute("""
+        SELECT
+            country
+          , SUM(cnt)
+        FROM
+            "https://docs.google.com/spreadsheets/d/1_rN3lm0R_bU3NemO0s9pbFkY5LQPcuy1pscv8ZXPtg8/"
+        GROUP BY
+            country
+    """, headers=1)
+    rows = result.fetchall()
+    return rows
+
+rows = run_query()
+
+# Print results.
+for row in rows:
+    st.write(f"{row.name} has a :{row.pet}:")
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
