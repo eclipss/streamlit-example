@@ -23,6 +23,7 @@ conn = connect()
 
 """
 [using Google sheet](https://docs.streamlit.io/knowledge-base/tutorials/databases/public-gsheet#write-your-streamlit-app)
+
 Perform SQL query on the Google Sheet.
 Uses st.cache to only rerun when the query changes or after 10 min.
 """
