@@ -41,8 +41,7 @@ rows = run_query()
 
 # Print results.
 for row in rows:
-#     st.write(f"{row.country} has a :{row.cnt}:")
-    st.write(row)
+    st.write(f"{row.country} has a :{row.sum_cnt}:")
 
 with st.echo(code_location='below'):
     total_points = st.slider("Number of points in spiral", 1, 5000, 2000)
