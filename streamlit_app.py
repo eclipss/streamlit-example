@@ -4,7 +4,8 @@ import math
 import pandas as pd
 import random
 import streamlit as st
-from gsheetsdb import connect
+# from gsheetsdb import connect
+from shillelagh.backends.apsw.db import connect
 
 """
 # Welcome to Streamlit by Eclipss!
