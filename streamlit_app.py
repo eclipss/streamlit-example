@@ -21,8 +21,11 @@ In the meantime, below is an example of what you can do with just a few lines of
 
 conn = connect()
 
+"""
+[using Google sheet](https://docs.streamlit.io/knowledge-base/tutorials/databases/public-gsheet#write-your-streamlit-app)
 # Perform SQL query on the Google Sheet.
 # Uses st.cache to only rerun when the query changes or after 10 min.
+"""
 @st.cache(ttl=600)
 def run_query():
     result = conn.execute("""
