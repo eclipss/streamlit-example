@@ -12,7 +12,7 @@ def get_data():
 source = get_data()
 
 # Original time series chart. Omitted `get_chart` for clarity
-chart = get_chart(source)
+# chart = get_chart(source)
 
 # Input annotations
 ANNOTATIONS = [
