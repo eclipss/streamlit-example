@@ -7,6 +7,8 @@ st.set_page_config(
     page_title="Time series annotations", page_icon="⬇", layout="centered"
 )
 
+st.markdown("# Timeseries 4 🕜")
+st.sidebar.markdown("# Timeseries 🕜")
 
 @st.experimental_memo
 def get_data():
