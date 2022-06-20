@@ -3,3 +3,4 @@ pandas
 streamlit
 shillelagh
 gsheetsdb
+vega_datasets
